@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class DataService {
     private http: HttpClient,
   ) { }
 
-  get(path: string): Observable<any> {
-    return this.http.get(`${environment.baseUrl}${path}`);
+  get(path: string, params?: Params): Observable<any> {
+    return this.http.get(`${environment.baseUrl}${path}`, {params});
   }
 
   post(path: string, body: any): Observable<any> {
