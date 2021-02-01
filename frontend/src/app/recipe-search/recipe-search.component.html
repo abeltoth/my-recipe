@@ -1,6 +1,22 @@
 <div class="search-form-container">
-  <input type="text" nbInput fullWidth status="primary" [(ngModel)]="searchTerm" placeholder="Search for recipies">
-  <button nbButton status="primary" (click)="search()"><nb-icon icon="search-outline"></nb-icon></button>
+  <input
+    nbInput
+    fullWidth
+    type="text"
+    status="primary"
+    [(ngModel)]="searchTerm"
+    (keydown.enter)="search()"
+    placeholder="Search for recipies">
+  <button nbButton status="primary" (click)="search()">
+    <nb-icon icon="search-outline"></nb-icon>
+  </button>
 </div>
 
-<app-recipe-recommendations></app-recipe-recommendations>
+<h2 *ngIf="!lastSearchTerm?.length" class="title">{{'Try these ' + recommendationKeyword + ' recipies!' }}</h2>
+<h2 *ngIf="lastSearchTerm?.length" class="title">{{'Results for "' + lastSearchTerm + '"' }}</h2>
+
+<app-recipe-list
+  [recipeList]="recipeList">
+</app-recipe-list>
+
+<div *ngIf="!recipeList.length" class="no-results">No results</div>
