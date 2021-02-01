@@ -12,7 +12,7 @@ const getRecipe = async (query, from = 0, to = 10) => {
         const response = await got(url);
         return response.body;
     } catch (error) {
-        console.log(error.response.body);
+        throw new Error('error: ' + error.response.body.message);
     }
 
 }
