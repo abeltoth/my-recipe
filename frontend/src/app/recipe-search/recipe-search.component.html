@@ -1,3 +1,6 @@
-<nb-search type="rotate-layout" hint="Search for recipes here"></nb-search>
+<div class="search-form-container">
+  <input type="text" nbInput fullWidth status="primary" [(ngModel)]="searchTerm" placeholder="Search for recipies">
+  <button nbButton status="primary" (click)="search()"><nb-icon icon="search-outline"></nb-icon></button>
+</div>
 
 <app-recipe-recommendations></app-recipe-recommendations>

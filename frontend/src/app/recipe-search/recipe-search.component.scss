@@ -1,0 +1,7 @@
+.search-form-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(222px, 600px) 50px;
+  max-width: 650px;
+  margin: auto;
+}

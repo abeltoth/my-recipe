@@ -1,6 +1,5 @@
 import { DataService } from './../shared/services/data.service';
 import { Component, OnInit } from '@angular/core';
-import { NbSearchService } from '@nebular/theme';
 
 @Component({
   selector: 'app-recipe-search',
@@ -9,16 +8,20 @@ import { NbSearchService } from '@nebular/theme';
 })
 export class RecipeSearchComponent implements OnInit {
 
+  searchTerm = '';
+
   constructor(
-    private nbSearchService: NbSearchService,
     private dataService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.nbSearchService.onSearchSubmit().subscribe(searchText => {
-      this.dataService.get('/recipe', {query: searchText.term}).subscribe(response => {
-        console.log(response);
-      });
+  }
+
+  search(): void {
+    if (this.searchTerm.length) { return; }
+
+    this.dataService.get('/recipe', {query: this.searchTerm}).subscribe(response => {
+      console.log(response);
     });
   }
 
