@@ -1,0 +1,20 @@
+<nb-flip-card [showToggleButton]="false" [flipped]="cardFlipped">
+  <nb-card-front>
+    <nb-card>
+      <nb-card-body class="card-front-body">
+        <span class="title">{{ recipe?.label }}</span>
+        <img class="recipe-image" src="{{ recipe?.image }}" alt="Recipe image">
+      </nb-card-body>
+      <nb-icon icon="chevron-left-outline" status="primary" [options]="{ animation: { type: 'zoom' } }" class="nb-shuffle" (click)="toggleView()"></nb-icon>
+    </nb-card>
+  </nb-card-front>
+  <nb-card-back>
+    <nb-card>
+      <nb-card-body class="card-back-body">
+        <div class="title">Ingredients:</div>
+        {{ ingredientTexts?.join('\r\n') }}
+      </nb-card-body>
+      <nb-icon icon="chevron-left-outline" status="primary" [options]="{ animation: { type: 'pulse' } }" class="nb-shuffle" (click)="toggleView()"></nb-icon>
+    </nb-card>
+  </nb-card-back>
+</nb-flip-card>

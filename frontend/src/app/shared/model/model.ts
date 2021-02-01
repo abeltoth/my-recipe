@@ -1,10 +1,16 @@
 export interface RecipeSearchResult {
   count: number;
   from: number;
-  hits: { bookmarked: boolean, bought: boolean, recipe: Recipe }[];
+  hits: RecipeSearchResultHit[];
   more: boolean;
   to: number;
   q: string;
+}
+
+export interface RecipeSearchResultHit {
+  bookmarked: boolean;
+  bought: boolean;
+  recipe: Recipe;
 }
 
 export interface Recipe {
@@ -24,12 +30,9 @@ export interface Recipe {
 }
 
 export interface Ingredient {
-  foodId: string;
-  quantity: number;
-  measure: Measure;
+  image: string;
+  text: string;
   weight: number;
-  food: Food;
-  foodCategory: string;
 }
 
 export interface NutrientInfo {
@@ -37,16 +40,6 @@ export interface NutrientInfo {
   label: string;
   quantity: number;
   unit: string;
-}
-
-export interface Measure {
-  uri: string;
-  label: string;
-}
-
-export interface Food {
-  foodId: string;
-  label: string;
 }
 
 export enum DietLabel {

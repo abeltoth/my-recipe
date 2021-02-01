@@ -1,0 +1,7 @@
+<h2 class="title">{{'Try these ' + selectedKeyword + ' recipies!' }}</h2>
+<div class="recipe-list">
+  <app-recipe-card
+    *ngFor="let recommendedRecipe of recommendedRecipies"
+    [recipe]="recommendedRecipe.recipe">
+  </app-recipe-card>
+</div>

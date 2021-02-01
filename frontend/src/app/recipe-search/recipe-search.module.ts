@@ -5,6 +5,7 @@ import { RecipeSearchComponent } from './recipe-search.component';
 import { RecipeSearchRoutingModule } from './recipe-search-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
+import { RecipeModule } from '../recipe/recipe.module';
 
 
 
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
     RecipeSearchRoutingModule,
     SharedModule,
     RouterModule,
-    NbSearchModule
+    NbSearchModule,
+    RecipeModule
   ]
 })
 export class RecipeSearchModule { }
